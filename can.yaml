@@ -1,1 +1,15 @@
 ---
+pool: 
+  name: "azure-pipelines"
+  vmImage: ubuntu-22.04
+
+trigger:
+  - main
+
+steps:
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: build
+      projects: src/NopCommerce.sln
+
+
