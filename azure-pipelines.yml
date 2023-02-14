@@ -1,13 +1,18 @@
 ---
-pool:
-  name: "Azure Pipelines"
-  vmImage: ubuntu-22.04
+pool: 
+  vmimage: ubuntu-latest
 
 trigger:
   - master
 
 steps:
-  - task: DotNetCoreCLI@2
+  - task: NodeTool@0
     inputs:
-      command: build
-      projects: src/NopCommerce.sln
+     versionSource: "16.x"
+     displayName: 'Install Node.js'
+
+  - script: npm Install
+    displayName: 'npm install'
+
+  - script: npm run build
+    displayName: 'npm build'
