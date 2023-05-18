@@ -11,3 +11,4 @@ steps:
     inputs:
       command: build
       projects: src/NopCommerce.sln
+      name: nopcommerce and there
